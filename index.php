@@ -25,20 +25,9 @@ if (isset($_POST['submit'])) {
 
    //fetch record from the database, as email is unique, only one record should return
    $userRecord = $stmt->fetch();
-   print_r($userRecord);
-   //check the case if the user record return query, and the email and password match record in databases
-   if ($userRecord == true && $email == $userRecord['email'] && $password == $userRecord['password']) {
-      $_SESSION['email'] = $email;
-      $_SESSION['password'] = $password;
-      $_SESSION['first_name'] = $userRecord['first_name'];
-      $_SESSION['last_name'] = $userRecord['last_name'];
+   //for testing
+   // print_r($userRecord);
 
-      //redirect to member page if the login is successful
-      header("Location: member.php");
-      exit();
-   } else {
-      echo "<br>Invalid Password!";
-   }
 }
 ?>
 <h2>Home Page</h2>
@@ -60,5 +49,20 @@ if (isset($_POST['submit'])) {
    </form>
 <?php endif; ?>
 <?php
+//check the case if the user record return query, and the email and password match record in databases
+if ($userRecord == true && $email == $userRecord['email'] && $password == $userRecord['password']) {
+   $_SESSION['email'] = $email;
+   $_SESSION['password'] = $password;
+   $_SESSION['id'] = $userRecord['user_id'];
+   $_SESSION['first_name'] = $userRecord['first_name'];
+   $_SESSION['last_name'] = $userRecord['last_name'];
+
+   //redirect to member page if the login is successful
+   header("Location: member.php");
+   exit();
+} else {
+   echo "<br>Invalid Credential, Please try again!";
+}
+
 include 'templates/footer.php';
 ?>
