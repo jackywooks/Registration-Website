@@ -11,7 +11,7 @@ try {
     //Creating New PDO Object
     $pdo = new PDO($dsn, $user, $password);
     //Testing Statement
-    echo "Connection Done!";
+    // echo "Connection Done!";
 } catch (PDOException $e) {
     //Print the Error Message if connection failed
     echo "Database Connection failed: " . $e->getMessage();
