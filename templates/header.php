@@ -31,6 +31,7 @@ session_start();
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="member.php">Member</a></li>
+                <!-- If user logged in, show logout page. If not, show register page -->
                 <?php if (!isset($_SESSION['email']) && !isset($_SESSION['password'])) : ?>
                     <li><a href="register.php">Register</a></li>
                 <?php else : ?>

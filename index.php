@@ -1,37 +1,43 @@
 <?php
 include 'templates/header.php';
-// echo "<br>Session Info:</br>";
-var_dump($_SESSION);
-// Warning: Undefined global variable $_SESSION => if you not run session_start()
+//setting the default fetch mode as fetching associative array
+$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+// if the form is submitted
 if (isset($_POST['submit'])) {
    // for checking/testing/reviewing:
-   print_r($_POST);
+   // print_r($_POST);
    /*
         Output:
         Array ( [username] => alexchow [password] => alex123 [submit] => Login )
     */
+   // Store the input information in local variables
    $email = $_POST['email'];
    $password = $_POST['password'];
-   echo "$email and $password";
-   // Associative Array => represents one record from our table in the DB:
-   // Hard coding the values! 
-   $oneRecord = [
-      "user_id" => 1,
-      "email" => "j@j.j",
-      "password" => "jj"
-   ];
 
-   if ($email == $oneRecord['email'] && $password == $oneRecord['password']) {
-      echo "<br>Credentials are ok!";
-      // It's better to use the keys as string values (Associative Array):
+   //select data from database based on the input
+   $sqlQuery = "SELECT * FROM users WHERE email = ? and password = ?";
+   //prepare the statement
+   $stmt = $pdo->prepare($sqlQuery);
+
+   //execute the statement
+   $stmt->execute([$email, $password]);
+
+   //fetch record from the database, as email is unique, only one record should return
+   $userRecord = $stmt->fetch();
+   print_r($userRecord);
+   //check the case if the user record return query, and the email and password match record in databases
+   if ($userRecord == true && $email == $userRecord['email'] && $password == $userRecord['password']) {
       $_SESSION['email'] = $email;
       $_SESSION['password'] = $password;
+      $_SESSION['first_name'] = $userRecord['first_name'];
+      $_SESSION['last_name'] = $userRecord['last_name'];
 
       //redirect to member page if the login is successful
       header("Location: member.php");
       exit();
    } else {
-      echo "<br>Invalid Credentials!";
+      echo "<br>Invalid Password!";
    }
 }
 ?>

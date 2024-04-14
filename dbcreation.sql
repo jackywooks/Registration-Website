@@ -7,3 +7,5 @@ CREATE TABLE users (
     email VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(12) NOT NULL
 );
+
+SELECT * FROM users;
