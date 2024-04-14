@@ -1,5 +1,10 @@
 <?php
 include 'templates/header.php';
+//Redirect user to login page if he is  logged in
+if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+    header('Location: index.php');
+    exit();
+}
 ?>
 <h2>Register for accessing Member Only Benefit</h2>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="registerForm">

@@ -8,6 +8,8 @@ CREATE TABLE users (
     password VARCHAR(12) NOT NULL
 );
 
+
 SELECT * FROM users;
+
 INSERT INTO users (first_name, last_name,email,password) VALUES (
 "Jacky","Woo","j@jj.com","123");
