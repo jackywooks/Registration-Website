@@ -1,6 +1,7 @@
 <?php
 // Include database config file => to get the PDO object 
 require_once 'config/dbconfig.php';
+$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 session_start();
 ?>
 <!DOCTYPE HTML> <!-- Using full HTML 5 -->

@@ -8,7 +8,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['password'])) {
 }
 ?>
 <h2><?php echo "Welcome" . " " . $_SESSION['first_name'] . " " . $_SESSION['last_name'] ?></h2>
-<p>From System Record, your member ID is <?php echo $_SESSION['id'] ?></p>
+<p>From System Record,</p>
 <p>Your email is <?php echo $_SESSION['email'] ?></p>
 <p>Please proceed to purchase if you want </p>
 
