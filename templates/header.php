@@ -1,3 +1,7 @@
+<?php
+// Include database config file => to get the PDO object 
+require_once 'config/dbconfig.php';
+?>
 <!DOCTYPE HTML> <!-- Using full HTML 5 -->
 <html>
 
