@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
             exit();
         }
     } else {
-        echo "The email has already been registered. Please try again with a new email.";
+        echo '<div class="errorMsg"><img src="./images/close.png" alt="logo"><b class="invalid">The email has already been registered. Please try again with a new email.</b></div>';
     }
 }
 ?>

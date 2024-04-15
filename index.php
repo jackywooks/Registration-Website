@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
       header("Location: member.php");
       exit();
    } else {
-      echo "<br><b>Invalid Credential, Please try again!<b>";
+      echo '<br><div class="errorMsg"><img src="./images/close.png" alt="logo"><b class="invalid">Invalid Credential, Please try again!</b></div>';
    }
 }
 ?>
