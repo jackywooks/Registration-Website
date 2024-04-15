@@ -3,6 +3,8 @@
 require_once 'config/dbconfig.php';
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 session_start();
+//turns on PHP's output buffering feature
+ob_start();
 ?>
 <!DOCTYPE HTML> <!-- Using full HTML 5 -->
 <html>
@@ -20,7 +22,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Styles -->
     <style>
-    <?php include 'css\styles.css'; ?>
+        <?php include 'css\styles.css'; ?>
     </style>
 </head>
 
@@ -40,7 +42,6 @@ session_start();
                     <li><a href="member.php">Member</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 <?php endif; ?>
-
                 <li><a href="contact.php">Contact</a></li>
             </ul>
         </div>
