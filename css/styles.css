@@ -73,16 +73,27 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.errorMsg {
-  color: var(--red-color);
-  background-color: var(--pale-red-color);
-  background-image: url("../images/close.png");
+/* For Displaying Error and Info Message */
+
+.errorMsg,
+.info {
   display: flex;
   align-items: center;
   padding: 0.5rem;
 }
 
-.errorMsg img {
+.errorMsg {
+  color: var(--red-color);
+  background-color: var(--pale-red-color);
+}
+
+.info {
+  color: var(--white-color);
+  background-color: var(--blue-color);
+}
+
+.errorMsg img,
+.info img {
   width: 2rem;
   height: 2rem;
   margin: 0.5rem;
@@ -116,6 +127,16 @@ input[id="last_name"] {
   box-sizing: border-box;
 }
 
+textarea {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
 input[type="submit"] {
   background-color: var(--red-color);
   color: #fff;
@@ -128,6 +149,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: var(--blue-color);
 }
+
 footer {
   text-align: center;
   background-color: #333;
