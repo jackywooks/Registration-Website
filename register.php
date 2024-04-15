@@ -1,6 +1,4 @@
 <?php
-// Start session
-session_start();
 
 // Include header template
 include 'templates/header.php';
